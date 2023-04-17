@@ -3,6 +3,7 @@ import Input from '../Input';
 import { useCallback, useState } from 'react';
 import Modal from '../Modal';
 import useRegisterModal from '@/hooks/useRegisterModal';
+import { signIn } from 'next-auth/react';
 
 type Props = {};
 
@@ -16,7 +17,10 @@ function LoginModal({}: Props) {
   const onSubmit = useCallback(async () => {
     try {
       setIsLoading(true);
-      // TODO: Add login
+      await signIn('credentials', {
+        email,
+        password,
+      });
 
       loginModal.onClose();
     } catch (error) {
@@ -24,7 +28,7 @@ function LoginModal({}: Props) {
     } finally {
       setIsLoading(false);
     }
-  }, [loginModal]);
+  }, [email, loginModal, password]);
 
   const onToggle = useCallback(() => {
     if (isLoading) return;
@@ -39,12 +43,14 @@ function LoginModal({}: Props) {
         onChange={(e) => setEmail(e.target.value)}
         value={email}
         disabled={isLoading}
+        type='email'
       />
       <Input
         placeholder='Password'
         onChange={(e) => setPassword(e.target.value)}
         value={password}
         disabled={isLoading}
+        type='password'
       />
     </div>
   );
