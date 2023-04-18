@@ -20,7 +20,7 @@ function RegisterModal({}: Props) {
   const onSubmit = useCallback(async () => {
     try {
       setIsLoading(true);
-      await axios.post('/api/register', { email, password, username });
+      await axios.post('/api/register', { email, password, username, name });
       toast.success('Account created');
       signIn('credentials', { email, password });
       registerModal.onClose();
@@ -31,7 +31,7 @@ function RegisterModal({}: Props) {
     } finally {
       setIsLoading(false);
     }
-  }, [email, password, registerModal, username]);
+  }, [email, name, password, registerModal, username]);
 
   const onToggle = useCallback(() => {
     if (isLoading) return;
