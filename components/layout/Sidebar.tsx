@@ -20,6 +20,7 @@ function Sidebar({}: Props) {
       href: '/notifications',
       icon: BsBellFill,
       auth: true,
+      alert: currentUser?.hasNotification,
     },
     {
       label: 'Profile',
@@ -40,6 +41,7 @@ function Sidebar({}: Props) {
               label={item.label}
               icon={item.icon}
               auth={item.auth}
+              alert={item.alert}
             />
           ))}
           {currentUser && <SidebarItem onClick={() => signOut()} icon={BiLogOut} label='Logout' />}

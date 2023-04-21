@@ -21,8 +21,9 @@ function Avatar({ userId, isLarge, hasBorder }: Props) {
     [router, userId]
   );
   return (
-    <div
-      className={`
+    <div>
+      <div
+        className={`
   ${hasBorder ? 'border-4 border-black' : ''}
   ${isLarge ? 'h-32' : 'h-12'}
   ${isLarge ? 'w-32' : 'w-12'}
@@ -32,13 +33,14 @@ function Avatar({ userId, isLarge, hasBorder }: Props) {
   cursor-pointer
   relative
   `}>
-      <Image
-        fill
-        style={{ objectFit: 'cover', borderRadius: '100%' }}
-        onClick={onClick}
-        alt='Avatar'
-        src={fetchedUser?.profileImage || '/images/placeholder.png'}
-      />
+        <Image
+          fill
+          style={{ objectFit: 'cover', borderRadius: '100%' }}
+          onClick={onClick}
+          alt='Avatar'
+          src={fetchedUser?.profileImage || '/images/placeholder.png'}
+        />
+      </div>
     </div>
   );
 }
