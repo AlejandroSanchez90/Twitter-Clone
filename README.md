@@ -2,6 +2,11 @@
 
 This project is a Twitter clone that replicates the core features and functionalities of the popular social media platform. It offers a responsive layout, an authentication system, a notification system, image upload capabilities using Base64 strings, and leverages Prisma ORM with MongoDB for efficient data management. The clone also implements various relationships such as one-to-many (User-Post) and many-to-many (Post-Comment), along with additional features like following functionality, comments/replies, and likes functionality.
 
+## Demo
+
+You can explore a live demo of the Twitter web app clone by visiting the following link: [Messenger Web App Demo](https://project-1-eta-wine.vercel.app/)
+Feel free to interact with the demo and test out the available features.
+
 ## Features
 
 - **Authentication System**: The Twitter clone includes a robust authentication system that allows users to register, log in, and securely manage their accounts. Users can authenticate with their credentials and maintain a personalized experience throughout the application.
